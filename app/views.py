@@ -4,7 +4,7 @@ from django.views import generic
 
 from app.models import Task, Tag
 
-
+# second try of pull-request issues
 def complete_task(request, pk):
     task = get_object_or_404(Task, pk=pk)
     task.done_or_not = not task.done_or_not  # Перемикаємо статус
