@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Tag</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="mt-4">Add New Tag</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Tag Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Tag</button>
+    </form>
+  </div>
+</body>
+</html>

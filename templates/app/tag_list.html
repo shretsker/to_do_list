@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="mt-4">Tag List</h1>
+    <a href="{% url 'app:tag-add' %}" class="btn btn-primary mb-3">Add New Tag</a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tag Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tag in tags %}
+          <tr>
+            <td>{{ tag.name }}</td>
+            <td>
+              <a href="{% url 'app:tag-update' tag.pk %}" class="btn btn-info btn-sm">Edit</a>
+              <a href="{% url 'app:tag-delete' tag.pk %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
